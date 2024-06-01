@@ -6,3 +6,7 @@ python-decouple
 pyaesni
 psutil
 tgcrypto
+lxml
+requests
+requests_toolbelt
+lxml_html_clean
