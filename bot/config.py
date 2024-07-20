@@ -25,9 +25,9 @@ CREATOR = config(
 )
 SUDO_USERS = config("SUDO_USERS", default=1164918935)
 AUTH_CHATS = config("AUTH_CHATS", default=-1001414926614)
-FFMPEG = [ffmpeg -i '''{}''' -preset fast -c:v libx265 -s 846x480 -pix_fmt yuv420p -crf 32 -map 0:v -c:a libfdk_aac -profile:a aac_he_v2 -map 0:a -vbr 2 -c:s copy -map 0:s? '''{}''' -y]
+FFMPEG = []
 try:
-    ffmpeg = config("FFMPEG",)
+    ffmpeg = config("FFMPEG", default="ffmpeg -i '''{}''' -preset fast -c:v libx265 -s 846x480 -pix_fmt yuv420p -crf 32 -map 0:v -c:a libfdk_aac -profile:a aac_he_v2 -map 0:a -vbr 2 -c:s copy -map 0:s? '''{}''' -y")
     FFMPEG.insert(0, ffmpeg)
     if ffmpeg == "":
         raise KeyError
